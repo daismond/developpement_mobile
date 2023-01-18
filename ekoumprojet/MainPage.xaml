@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="rattrapageProfile.MainPage"
+             Shell.NavBarIsVisible="False"
+            xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:badge="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:xct ="http://xamarin.com/schemas/2020/toolkit"
+            BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+   
+        <VerticalStackLayout Margin="0,5,5,5">
+        
+            <Label
+                Text="Profile "
+                    HeightRequest="50"
+                    Background="lightGray"
+                SemanticProperties.HeadingLevel="Level1"
+                TextColor="Green"
+                VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                 HorizontalOptions="FillAndExpand"
+                FontSize="20"
+                 />
+            
+            <StackLayout >
+            <Grid ColumnDefinitions="*,*" RowDefinitions="110" >
+                <Image Grid.ColumnSpan="2" Aspect="AspectFill" HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="FillAndExpand" Source="background.jpg"
+                         />
+              
+
+               
+                <badge:SfAvatarView Grid.ColumnSpan="2" ContentType="Custom"
+                                    ImageSource="doualla.jpg"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    HeightRequest="60"
+                                    ClipToBounds="True"
+                                    Margin="10,100,0,0"
+                                    CornerRadius="25"
+                                    WidthRequest="60"
+                                    />
+
+            </Grid>
+
+            </StackLayout >
+        <Label  Margin="0,30,0,0" Text="Doualla Patrick" FontAttributes="Bold" FontSize="15" Padding="20,10,0,0"/>
+            <Label  Text="IT Engineer" FontSize="12"  Padding="20,0,0,0" />
+            <Frame 
+                       BorderColor="White"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                      
+                       BackgroundColor="LightGray"
+                       Margin="10,10,10,10"
+                       >
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto" MinimumHeightRequest="80">
+                    <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                    <Label  Text="25" TextColor="Red" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center" />
+                        <Label  Text="Totalités des points" FontSize="12" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                        <Label  Text="2X" TextColor="Orange" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center" />
+                        <Label  Text="2X à la tête du championnat" FontSize="12" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="2">
+                    <Label  Text="250" TextColor="Green" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center"/>
+                        <Label  Text="Total KPI Accumuler" FontSize="12" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </Grid>
+             
+
+            </Frame>
+
+        <tabView:SfTabView x:Name="tabView" Margin="10,0,10,0">
+                <tabView:SfTabView.Items>
+                    <tabView:SfTabItem Header="Personnal Info" FontSize="10" FontAttributes="Bold">
+                        <tabView:SfTabItem.Content>
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto" Margin="15,5,15,0"
+                              MinimumHeightRequest="80">
+                            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Start">
+                                <Label  Text="Noms et Prénoms"  FontAttributes="Bold" FontSize="15"  />
+                                <Entry x:Name="name"  Placeholder="Doualla Patrick" IsReadOnly="True" FontSize="12" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                                <Button
+                                            x:Name="nameBtn"
+                                            Text="Edit"
+                                            FontSize="10"
+                                            CornerRadius="40"
+                                            
+                                            BackgroundColor="LightBlue"
+                                            WidthRequest="60"
+                                            HeightRequest="35"
+                                            SemanticProperties.Hint="Counts the number of times you click"
+                                            Clicked="nameEditClicked"
+                                            HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+
+                        </Grid>
+                    </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+
+                    <tabView:SfTabItem Header="Login and Security" FontSize="9" FontAttributes="Bold">
+                        <tabView:SfTabItem.Content>
+                            <StackLayout Margin="15,5,15,0">
+                                
+                                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto" MinimumHeightRequest="80">
+                                    <VerticalStackLayout Grid.Column="0" HorizontalOptions="Start">
+                                        <Label  Text="Login"  FontAttributes="Bold" FontSize="15"  />
+                                    <Entry x:Name="login"  Placeholder="@patrick" IsReadOnly="True" FontSize="12" />
+                                    </VerticalStackLayout>
+                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                                        <Button
+                                            x:Name="CounterBtn"
+                                            Text="Edit"
+                                            FontSize="10"
+                                            CornerRadius="40"
+                                            
+                                            BackgroundColor="LightBlue"
+                                            WidthRequest="60"
+                                            HeightRequest="35"
+                                            SemanticProperties.Hint="Counts the number of times you click"
+                                            Clicked="OnCounterClicked"
+                                            HorizontalOptions="Center" />
+                                    </VerticalStackLayout>
+                           
+                                </Grid>
+                                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto" MinimumHeightRequest="80">
+                                    <VerticalStackLayout Grid.Column="0" HorizontalOptions="Start">
+                                        <Label  Text="Password"  FontAttributes="Bold" FontSize="15"  />
+                                    <Entry x:Name="pwd"  Text="patrick" IsPassword="True" IsReadOnly="True" FontSize="12" />
+                                    </VerticalStackLayout>
+                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                                        <Button
+                                            x:Name="passBtn"
+                                            Text="Edit"
+                                            FontSize="10"
+                                            
+                                            CornerRadius="40"
+                                            BackgroundColor="LightBlue"
+                                            WidthRequest="60"
+                                            HeightRequest="35"
+                                            SemanticProperties.Hint="Counts the number of times you click"
+                                            Clicked="PassEditClicked"
+                                            HorizontalOptions="Center" />
+                                    </VerticalStackLayout>
+
+                                </Grid>
+                            </StackLayout>
+
+                        </tabView:SfTabItem.Content>
+                       
+                    </tabView:SfTabItem>
+
+                    <tabView:SfTabItem Header="Profile Info" FontSize="11" FontAttributes="Bold">
+                        <tabView:SfTabItem.Content>
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto" Margin="15,5,15,0"
+                              MinimumHeightRequest="80">
+                            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Start">
+                                <Label  Text="Type KPI"  FontAttributes="Bold" FontSize="15"  />
+                                <Entry x:Name="kpi"  Placeholder="standard" IsReadOnly="True" FontSize="12" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                                <Button
+                                            x:Name="kpiBtn"
+                                            Text="Edit"
+                                            FontSize="10"
+                                            CornerRadius="40"
+                                            
+                                            BackgroundColor="LightBlue"
+                                            WidthRequest="60"
+                                            HeightRequest="35"
+                                            SemanticProperties.Hint="Counts the number of times you click"
+                                            Clicked="kpiEditClicked"
+                                            HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+
+                        </Grid>
+                    </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                </tabView:SfTabView.Items>
+            </tabView:SfTabView>
+       
+        <Frame 
+                       BorderColor="White"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       CornerRadius="00"
+                       BackgroundColor="LightGray"
+                       Margin="0,51,0,0"
+                       HeightRequest="60"
+                       >
+            <HorizontalStackLayout  HorizontalOptions="CenterAndExpand" Spacing="30" HeightRequest="50"
+                                    VerticalOptions="Center">
+                <ImageButton  WidthRequest="30" HeightRequest="40" Source="risechart.png"/>
+                <badge:SfBadgeView BadgeText="99" HorizontalOptions="Center" VerticalOptions="Center">
+               
+     
+                        <badge:SfBadgeView.Content>
+
+                        <ImageButton  WidthRequest="30" HeightRequest="30" Source="cloche.png"/>
+                        </badge:SfBadgeView.Content>
+                </badge:SfBadgeView>
+           
+                <ImageButton  WidthRequest="30" HeightRequest="40" Source="user.svg"/>
+                <ImageButton  WidthRequest="30" HeightRequest="40" Source="trophy.svg"/>
+                <Label  FontAttributes="Bold" FontSize="20" HeightRequest="40"  
+                        VerticalTextAlignment="Center" Text=". . ."/>
+                
+            </HorizontalStackLayout>
+
+
+        </Frame>
+    </VerticalStackLayout>
+ 
+  
+
+    
+</ContentPage>
